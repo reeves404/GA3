@@ -1,3 +1,4 @@
+```{=html}
 <!--
 GA3 README template.
 - Add your answers to each question's section below.
@@ -10,6 +11,7 @@ GA3 README template.
   (so make sure you commit them!).
 - Delete instructional comments like this one as you go.
 -->
+```
 
 # GA3 answers - <your-name>
 
@@ -37,53 +39,61 @@ GA3 README template.
 
 <!-- No need to paste the script: we'll look at scripts/echo.sh directly. -->
 
-*Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08`):
+*Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08`): Its going to give an error because we have three arguments and it only provides two *Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08 Oct09 Oct10`): Its going to give an error because we have three arguments and it provides four *Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08 "Oct09 Oct10"`): I think this would work, because it provides three arguments treating "Oct09 Oct10" as one *Answer* (prediction and reasoning for `bash scripts/echo.sh results/fastqc/*.html`): I dont think itll work because the file path is a single argument due to it being one html and its saying to run all html in that directory \### 5: Run `echo.sh` and compare with your predictions
 
-*Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08 Oct09 Oct10`):
-
-*Answer* (prediction and reasoning for `bash scripts/echo.sh Oct07 Oct08 "Oct09 Oct10"`):
-
-*Answer* (prediction and reasoning for `bash scripts/echo.sh results/fastqc/*.html`):
-
-### 5: Run `echo.sh` and compare with your predictions
-
-```bash
+``` bash
 bash scripts/echo.sh Oct07 Oct08
 ```
 
 The output of the command was:
 
 ```         
+Oct07
+Oct08
+scripts/echo.sh: line 6: $3: unbound variable
 ```
 
-```bash
+``` bash
 bash scripts/echo.sh Oct07 Oct08 Oct09 Oct10
 ```
 
 The output of the command was:
 
 ```         
+Oct07
+Oct08
+Oct09
+Finished
 ```
 
-```bash
+``` bash
 bash scripts/echo.sh Oct07 Oct08 "Oct09 Oct10"
 ```
 
 The output of the command was:
 
 ```         
+Oct07
+Oct08
+Oct09 Oct10
+Finished
+[reeves404@p0218 
 ```
 
-```bash
+``` bash
 bash scripts/echo.sh results/fastqc/*.html
 ```
 
 The output of the command was:
 
 ```         
+results/fastqc/S63_R1_fastqc.html
+scripts/echo.sh: line 5: $2: unbound variable
 ```
 
 *Answer*: Which output (if any) differed from your prediction, and why?
+
+The second differed, as it ignored the fourth argument instead of error
 
 ### 6: Write the `printline.sh` script
 
@@ -93,7 +103,7 @@ The output of the command was:
 
 Test 1:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -104,7 +114,7 @@ The output of the command was:
 
 Test 2 (with redirection), and checking the contents of the output file:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -125,7 +135,7 @@ The output of the command that checks the file contents was:
 
 Code to run `multiqc --help` with the container:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -133,7 +143,7 @@ Code to run `multiqc --help` with the container:
 
 The MultiQC command to run MultiQC on `results/fastqc` with output in `results/multiqc`:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -145,7 +155,7 @@ The MultiQC command to run MultiQC on `results/fastqc` with output in `results/m
 
 Code to run the script:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -161,7 +171,7 @@ Code to run the script:
 
 Code to rerun the script:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -183,13 +193,13 @@ Code to rerun the script:
 
 ### 15: Render your README to PDF and HTML
 
-```bash
+``` bash
 pandoc -o README.pdf README.md
 ```
 
-- Command to render to HTML:
+-   Command to render to HTML:
 
-```bash
+``` bash
 # Your command:
 ```
 
@@ -227,7 +237,7 @@ pandoc -o README.pdf README.md
 
 ### 22: Pandoc versions
 
-```bash
+``` bash
 # Your command:
 ```
 
