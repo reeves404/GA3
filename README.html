@@ -1,0 +1,118 @@
+<!--
+GA3 README template.
+- Add your answers to each question's section below.
+- For each question where we want you to add your commands,
+  put the command(s) you ran in the terminal in the corresponding ```bash code block.
+- Where we want to see a command's output, there is a plain ``` code block
+  right below the command block: paste the output there.
+- You don't need to paste the contents of your scripts into this file:
+  we will look at the scripts in your `scripts` dir directly
+  (so make sure you commit them!).
+- Delete instructional comments like this one as you go.
+-->
+<h1 id="ga3-answers--">GA3 answers - <your-name></h1>
+<hr />
+<h2 id="part-a-your-readme-data-and-git-repo">Part A: Your README, data, and Git repo</h2>
+<h3 id="create-subdirs-and-copy-files">1: Create subdirs and copy files</h3>
+<!-- No command/output needed -- you can make dirs however you want, and the copy commands are provided. -->
+<h3 id="initialize-a-git-repository-and-commit-the-readme-and-.gitignore">2: Initialize a Git repository, and commit the README and <code>.gitignore</code></h3>
+<!-- No command/output needed here -- we check the repo directly. -->
+<h3 id="commit-throughout-the-assignment">3: Commit throughout the assignment</h3>
+<!-- No command/output needed here -- we check your commit history directly. -->
+<hr />
+<h2 id="part-b-basic-shell-scripts">Part B: Basic shell scripts</h2>
+<h3 id="predict-the-output-of-echo.sh">4: Predict the output of <code>echo.sh</code></h3>
+<!-- No need to paste the script: we'll look at scripts/echo.sh directly. -->
+<p><em>Answer</em> (prediction and reasoning for <code>bash scripts/echo.sh Oct07 Oct08</code>): Its going to give an error because we have three arguments and it only provides two <em>Answer</em> (prediction and reasoning for <code>bash scripts/echo.sh Oct07 Oct08 Oct09 Oct10</code>): Its going to give an error because we have three arguments and it provides four <em>Answer</em> (prediction and reasoning for <code>bash scripts/echo.sh Oct07 Oct08 "Oct09 Oct10"</code>): I think this would work, because it provides three arguments treating “Oct09 Oct10” as one <em>Answer</em> (prediction and reasoning for <code>bash scripts/echo.sh results/fastqc/*.html</code>): I dont think itll work because the file path is a single argument due to it being one html and its saying to run all html in that directory ### 5: Run <code>echo.sh</code> and compare with your predictions</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/echo.sh Oct07 Oct08</span></code></pre></div>
+<p>The output of the command was:</p>
+<pre><code>Oct07
+Oct08
+scripts/echo.sh: line 6: $3: unbound variable</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/echo.sh Oct07 Oct08 Oct09 Oct10</span></code></pre></div>
+<p>The output of the command was:</p>
+<pre><code>Oct07
+Oct08
+Oct09
+Finished</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/echo.sh Oct07 Oct08 <span class="st">&quot;Oct09 Oct10&quot;</span></span></code></pre></div>
+<p>The output of the command was:</p>
+<pre><code>Oct07
+Oct08
+Oct09 Oct10
+Finished
+[reeves404@p0218 </code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/echo.sh results/fastqc/<span class="pp">*</span>.html</span></code></pre></div>
+<p>The output of the command was:</p>
+<pre><code>results/fastqc/S63_R1_fastqc.html
+scripts/echo.sh: line 5: $2: unbound variable</code></pre>
+<p><em>Answer</em>: Which output (if any) differed from your prediction, and why?</p>
+<p>The second differed, as it ignored the fourth argument instead of error</p>
+<h3 id="write-the-printline.sh-script">6: Write the <code>printline.sh</code> script</h3>
+<!-- No need to paste the script: we'll look at scripts/printline.sh directly. -->
+<h3 id="test-printline.sh-twice">7: Test <code>printline.sh</code> twice</h3>
+<p>Test 1:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command: bash scripts/printline.sh 5 data/metadata.tsv </span></span></code></pre></div>
+<p>The output of the command was:</p>
+<pre><code>S83     10dpi   cathemerium       </code></pre>
+<p>Test 2 (with redirection), and checking the contents of the output file:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command: bash scripts/printline.sh 5 data/metadata.tsv &gt; results/printlinetest.txt</span></span></code></pre></div>
+<p>The output of the command that checks the file contents was:</p>
+<pre><code>S83     10dpi   cathemerium</code></pre>
+<hr />
+<h2 id="part-c-a-script-to-run-multiqc">Part C: A script to run MultiQC</h2>
+<h3 id="get-a-multiqc-container-link">8: Get a MultiQC container link</h3>
+<p><em>Answer</em>: The container link (URI) is: oras://community.wave.seqera.io/library/multiqc:1.35–562c547b518ebe20</p>
+<h3 id="multiqcs-help-info-and-the-multiqc-command">9: MultiQC’s help info, and the MultiQC command</h3>
+<p>Code to run <code>multiqc --help</code> with the container:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command: apptainer exec oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20 multiqc --help</span></span></code></pre></div>
+<!-- You don't need to paste the MultiQC help output -->
+<p>The MultiQC command to run MultiQC on <code>results/fastqc</code> with output in <code>results/multiqc</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command: apptainer exec oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20 multiqc results/fastqc -o results/multiqc</span></span></code></pre></div>
+<h3 id="write-the-multiqc.sh-script">10: Write the <code>multiqc.sh</code> script</h3>
+<!-- No need to paste the script: we'll look at scripts/multiqc.sh directly. -->
+<h3 id="run-multiqc.sh">11: Run <code>multiqc.sh</code></h3>
+<p>Code to run the script:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command: bash scripts/multiqc.sh </span></span></code></pre></div>
+<!-- You don't need to paste the MultiQC logging output -->
+<p><em>Answer</em>: Number of FastQC reports MultiQC found: 1 <em>Answer</em>: Does that match what you expected? Why/why not? Yes, there was only 1 listed</p>
+<h3 id="make-multiqc.sh-accept-arguments-and-rerun-it">12: Make <code>multiqc.sh</code> accept arguments, and rerun it</h3>
+<!-- No need to paste the script: we'll look at scripts/multiqc.sh and its Git history directly. -->
+<p>Code to rerun the script:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command:  bash scripts/multiqc.sh results/fastqc results/multiqc</span></span></code></pre></div>
+<!-- No need to paste any output -->
+<h3 id="differences-between-the-two-multiqc-runs">13: Differences between the two MultiQC runs</h3>
+<p><em>Answer</em>: Theres no differences in output, it just names the file something new because theyre duplicates</p>
+<hr />
+<h2 id="part-d-pandoc-to-render-markdown">Part D: Pandoc to render Markdown</h2>
+<h3 id="the-structure-of-the-pandoc-command">14: The structure of the Pandoc command</h3>
+<p><em>Answer</em> (options and arguments, and what each does): options - giving it an input and output . Arguments first is output (-o), second argument is input (md)</p>
+<p><em>Answer</em> (how does Pandoc know which output format to produce?): the extension of the output file</p>
+<h3 id="render-your-readme-to-pdf-and-html">15: Render your README to PDF and HTML</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">-o</span> README.pdf README.md</span></code></pre></div>
+<ul>
+<li>Command to render to HTML:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command:</span></span></code></pre></div>
+<h3 id="should-the-rendered-files-be-committed">16: Should the rendered files be committed?</h3>
+<p><em>Answer</em>: Should the rendered files be committed to your Git repo? Why/why not?</p>
+<h3 id="install-the-pdf-viewer-extension-and-view-the-pdf">17: Install the PDF Viewer extension and view the PDF</h3>
+<p><em>Answer</em>: One observation about the rendered PDF file:</p>
+<h2 id="part-e-publish-your-repo-on-github">Part E: Publish your repo on GitHub</h2>
+<h3 id="create-a-github-repository">18: Create a GitHub repository</h3>
+<!-- No command/output needed here -- we check your GitHub repo directly. -->
+<h3 id="connect-your-local-repo-to-github-and-push">19: Connect your local repo to GitHub, and push</h3>
+<!-- No command/output needed here -- we check your GitHub repo directly. -->
+<h3 id="create-an-issue-to-tag-the-instructors">20: Create an Issue to tag the instructors</h3>
+<!-- No command/output needed here -- we check your GitHub repo directly. -->
+<hr />
+<h2 id="bonus">Bonus</h2>
+<h3 id="explore-the-multiqc-report">21: Explore the MultiQC report</h3>
+<p><em>Answer</em> (one insight you gained):</p>
+<p><em>Answer</em> (one thing you’re confused about):</p>
+<h3 id="pandoc-versions">22: Pandoc versions</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your command:</span></span></code></pre></div>
+<p>The output of the command(s) was:</p>
+<pre><code></code></pre>
+<p><em>Answer</em>: Is the Pandoc version available by default the most recent one?</p>
+<p><em>Answer</em>: Which Pandoc version are you using after loading the module?</p>

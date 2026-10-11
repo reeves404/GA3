@@ -104,23 +104,25 @@ The second differed, as it ignored the fourth argument instead of error
 Test 1:
 
 ``` bash
-# Your command:
+# Your command: bash scripts/printline.sh 5 data/metadata.tsv 
 ```
 
 The output of the command was:
 
-```         
+```  
+S83     10dpi   cathemerium       
 ```
 
 Test 2 (with redirection), and checking the contents of the output file:
 
 ``` bash
-# Your command:
+# Your command: bash scripts/printline.sh 5 data/metadata.tsv > results/printlinetest.txt
 ```
 
 The output of the command that checks the file contents was:
 
-```         
+``` 
+S83     10dpi   cathemerium
 ```
 
 ------------------------------------------------------------------------
@@ -129,14 +131,14 @@ The output of the command that checks the file contents was:
 
 ### 8: Get a MultiQC container link
 
-*Answer*: The container link (URI) is:
+*Answer*: The container link (URI) is: oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20
 
 ### 9: MultiQC's help info, and the MultiQC command
 
 Code to run `multiqc --help` with the container:
 
 ``` bash
-# Your command:
+# Your command: apptainer exec oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20 multiqc --help
 ```
 
 <!-- You don't need to paste the MultiQC help output -->
@@ -144,7 +146,7 @@ Code to run `multiqc --help` with the container:
 The MultiQC command to run MultiQC on `results/fastqc` with output in `results/multiqc`:
 
 ``` bash
-# Your command:
+# Your command: apptainer exec oras://community.wave.seqera.io/library/multiqc:1.35--562c547b518ebe20 multiqc results/fastqc -o results/multiqc
 ```
 
 ### 10: Write the `multiqc.sh` script
@@ -156,14 +158,15 @@ The MultiQC command to run MultiQC on `results/fastqc` with output in `results/m
 Code to run the script:
 
 ``` bash
-# Your command:
+# Your command: bash scripts/multiqc.sh 
 ```
 
 <!-- You don't need to paste the MultiQC logging output -->
 
-*Answer*: Number of FastQC reports MultiQC found:
-
+*Answer*: Number of FastQC reports MultiQC found: 
+1
 *Answer*: Does that match what you expected? Why/why not?
+Yes, there was only 1 listed 
 
 ### 12: Make `multiqc.sh` accept arguments, and rerun it
 
@@ -172,14 +175,14 @@ Code to run the script:
 Code to rerun the script:
 
 ``` bash
-# Your command:
+# Your command:  bash scripts/multiqc.sh results/fastqc results/multiqc
 ```
 
 <!-- No need to paste any output -->
 
 ### 13: Differences between the two MultiQC runs
 
-*Answer*:
+*Answer*: Theres no differences in output, it just names the file something new because theyre duplicates 
 
 ------------------------------------------------------------------------
 
@@ -187,9 +190,9 @@ Code to rerun the script:
 
 ### 14: The structure of the Pandoc command
 
-*Answer* (options and arguments, and what each does):
+*Answer* (options and arguments, and what each does): options - giving it an input and output . Arguments first is output (-o), second argument is input (md)
 
-*Answer* (how does Pandoc know which output format to produce?):
+*Answer* (how does Pandoc know which output format to produce?): the extension of the output file
 
 ### 15: Render your README to PDF and HTML
 
@@ -200,16 +203,17 @@ pandoc -o README.pdf README.md
 -   Command to render to HTML:
 
 ``` bash
-# Your command:
+# Your command: pandoc -o README.html README.md
 ```
 
 ### 16: Should the rendered files be committed?
 
-*Answer*: Should the rendered files be committed to your Git repo? Why/why not?
+*Answer*: Should the rendered files be committed to your Git repo? Why/why not? 
+Yes, they are not data files and they provide other ways of viewing the readme
 
 ### 17: Install the PDF Viewer extension and view the PDF
 
-*Answer*: One observation about the rendered PDF file:
+*Answer*: One observation about the rendered PDF file: the bash commands are formatted as plain text 
 
 ## Part E: Publish your repo on GitHub
 
